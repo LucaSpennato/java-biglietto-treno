@@ -20,8 +20,7 @@ public class CalcolaBiglietto {
 		System.out.print("La tua età: ");
 		int userAge = sc.nextInt();
 		
-		float finalTicketPlusOneCent = (ticketPricePerKm / 50f);
-		float finalicketPrice = (ticketPricePerKm + finalTicketPlusOneCent) * userKmToRide;
+		float finalicketPrice = ticketPricePerKm * userKmToRide + (((userKmToRide - 1) * ((userKmToRide -1 ) + 1f)) / 2f) * 0.01f;
 
 		float saledTicketPrice = 0.0f;
 		
