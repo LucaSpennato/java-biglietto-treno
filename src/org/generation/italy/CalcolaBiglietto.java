@@ -12,19 +12,24 @@ public class CalcolaBiglietto {
 		int minorSale = 20;
 		int elderSale = 40;
 		
+		
 		System.out.print("Quanti km dovrai percorrere?\t");
 		float userKmToRide = sc.nextFloat();
+		
 		
 		System.out.print("La tua età: ");
 		int userAge = sc.nextInt();
 		
-		float finalicketPrice = ticketPricePerKm * userKmToRide;
+		float finalTicketPlusOneCent = (ticketPricePerKm / 50f);
+		float finalicketPrice = (ticketPricePerKm + finalTicketPlusOneCent) * userKmToRide;
+
 		float saledTicketPrice = 0.0f;
 		
 		if(userAge > 12 && userAge < 18) {
 		    
-			saledTicketPrice = finalicketPrice - (( ((float) finalicketPrice) * ((float) minorSale) ) / 100f);
-			System.out.printf("E' stato applicato lo sconto minorenne, il prezzo sarà: %.2f", saledTicketPrice);
+			// altro metodo in live coding
+			finalicketPrice -= finalicketPrice / 100 * minorSale;
+			System.out.printf("E' stato applicato lo sconto minorenne, il prezzo sarà: %.2f", finalicketPrice);
 			
 			sc.close();
 			return;
