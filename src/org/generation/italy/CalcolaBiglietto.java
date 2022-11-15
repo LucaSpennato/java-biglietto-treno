@@ -21,7 +21,7 @@ public class CalcolaBiglietto {
 		float finalicketPrice = ticketPricePerKm * userKmToRide;
 		float saledTicketPrice = 0.0f;
 		
-		if(userAge < 18) {
+		if(userAge > 12 && userAge < 18) {
 		    
 			saledTicketPrice = finalicketPrice - (( ((float) finalicketPrice) * ((float) minorSale) ) / 100f);
 			System.out.printf("E' stato applicato lo sconto minorenne, il prezzo sarà: %.2f", saledTicketPrice);
@@ -31,6 +31,11 @@ public class CalcolaBiglietto {
 		}else if(userAge >= 40) {
 			saledTicketPrice = finalicketPrice - (( ((float) finalicketPrice) * ((float) elderSale) ) / 100f);
 			System.out.printf("E' stato applicato lo sconto over 65, il prezzo sarà: %.2f", saledTicketPrice);
+			
+			sc.close();
+			return;
+		}else if(userAge <= 12) {
+			System.out.println("I minori di 12 anni viaggiano gratis!");
 			
 			sc.close();
 			return;
